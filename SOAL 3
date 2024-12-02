@@ -1,0 +1,41 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter
+v0 = 50  # Kecepatan awal (m/s)
+g = 9.8  # Percepatan gravitasi (m/s^2)
+
+# a) NPM Ganjil: Grafik sampai tinggi maksimum
+t_max = v0 / g  # Waktu mencapai tinggi maksimum
+h_max = v0 * t_max - 0.5 * g * t_max**2  # Tinggi maksimum
+
+# Waktu dari 0 hingga t_max
+t_1 = np.linspace(0, t_max, 500)
+h_1 = v0 * t_1 - 0.5 * g * t_1**2
+
+# Plot grafik untuk a) Sampai tinggi maksimum
+plt.figure(figsize=(10, 6))
+plt.plot(t_1, h_1, label=f'Gerak vertikal (Tinggi Maksimum: {h_max:.2f} m)', color='b')
+plt.title('Gerak Vertikal Sampai Tinggi Maksimum (NPM Ganjil)')
+plt.xlabel('Waktu (detik)')
+plt.ylabel('Tinggi (meter)')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# b) NPM Genap: Grafik sampai kembali ke posisi awal
+t_total = 2 * t_max  # Waktu total sampai benda kembali ke tanah
+
+# Waktu dari 0 sampai t_total
+t_2 = np.linspace(0, t_total, 500)
+h_2 = v0 * t_2 - 0.5 * g * t_2**2
+
+# Plot grafik untuk b) Sampai kembali ke posisi awal
+plt.figure(figsize=(10, 6))
+plt.plot(t_2, h_2, label=f'Gerak vertikal (Kembali ke Posisi Awal)', color='r')
+plt.title('Gerak Vertikal Sampai Kembali ke Posisi Awal (NPM Genap)')
+plt.xlabel('Waktu (detik)')
+plt.ylabel('Tinggi (meter)')
+plt.grid(True)
+plt.legend()
+plt.show()
